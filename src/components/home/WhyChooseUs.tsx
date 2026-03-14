@@ -1,6 +1,7 @@
 import { ShieldCheck, Stethoscope, BadgeDollarSign, Users, Sofa } from "lucide-react";
 import FadeIn from "../shared/FadeIn";
 import AnimatedCounter from "../shared/AnimatedCounter";
+import Image from "next/image";
 
 const advantages = [
     {
@@ -69,12 +70,15 @@ export default function WhyChooseUs() {
 
                     <div className="order-1 lg:order-2 relative">
                         <FadeIn delay={0.3} direction="left" fullWidth>
-                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl transform rotate-3"></div>
-                            <img
-                                src="https://images.unsplash.com/photo-1606265752439-1f18756aa5ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                alt="Dental Care Team"
-                                className="relative rounded-3xl shadow-xl w-full object-cover aspect-[4/5] hover:scale-[1.02] transition-transform duration-500"
-                            />
+                            <div className="relative rounded-3xl shadow-xl w-full aspect-[4/5] overflow-hidden group">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-3xl transform rotate-3 z-0"></div>
+                                <Image
+                                    fill
+                                    src="https://images.unsplash.com/photo-1606265752439-1f18756aa5ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    alt="Dental Care Team"
+                                    className="object-cover relative z-10 group-hover:scale-[1.02] transition-transform duration-500"
+                                />
+                            </div>
 
                             {/* Stats Overlay inside the image container */}
                             <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex flex-col items-center justify-center min-w-[150px] transform hover:-translate-y-2 transition-transform duration-300 z-10 hidden sm:flex">

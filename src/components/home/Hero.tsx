@@ -3,6 +3,9 @@
 import AppointmentForm from "../shared/AppointmentForm";
 import FadeIn from "../shared/FadeIn";
 import { motion } from "framer-motion";
+import Image from "next/image";
+
+const MotionImage = motion(Image);
 
 export default function Hero() {
     return (
@@ -52,9 +55,15 @@ export default function Hero() {
                         <FadeIn delay={0.7} duration={0.6}>
                             <div className="mt-10 flex items-center space-x-4 text-sm text-slate-500">
                                 <div className="flex -space-x-2">
-                                    <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&q=80" alt="Patient" />
-                                    <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&q=80" alt="Patient" />
-                                    <img className="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&q=80" alt="Patient" />
+                                    <div className="relative h-8 w-8 rounded-full ring-2 ring-white overflow-hidden">
+                                        <Image fill src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&q=80" alt="Patient" className="object-cover" />
+                                    </div>
+                                    <div className="relative h-8 w-8 rounded-full ring-2 ring-white overflow-hidden">
+                                        <Image fill src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&q=80" alt="Patient" className="object-cover" />
+                                    </div>
+                                    <div className="relative h-8 w-8 rounded-full ring-2 ring-white overflow-hidden">
+                                        <Image fill src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=64&q=80" alt="Patient" className="object-cover" />
+                                    </div>
                                 </div>
                                 <div>
                                     <span className="font-bold text-slate-800">500+</span> Happy Patients
@@ -67,12 +76,14 @@ export default function Hero() {
                     <div className="relative z-10 w-full max-w-md mx-auto lg:max-w-none">
                         <FadeIn delay={0.3} direction="left" duration={0.7} fullWidth>
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl lg:hidden mb-8 aspect-video">
-                                <motion.img
+                                <MotionImage
                                     animate={{ y: [0, -10, 0] }}
                                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                                     src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                                     alt="Modern Dental Clinic"
-                                    className="w-full h-full object-cover"
+                                    fill
+                                    priority
+                                    className="object-cover"
                                 />
                             </div>
 

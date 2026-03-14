@@ -1,5 +1,6 @@
 import { CheckCircle2 } from "lucide-react";
 import FadeIn from "../shared/FadeIn";
+import Image from "next/image";
 
 export default function AboutSection() {
     const points = [
@@ -19,20 +20,26 @@ export default function AboutSection() {
                         <div className="grid grid-cols-2 gap-4">
                             <FadeIn direction="right" delay={0.1} fullWidth>
                                 <div className="space-y-4 pt-8">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                        alt="Dental Clinic Interior"
-                                        className="rounded-2xl shadow-lg w-full object-cover h-64 hover:scale-[1.02] transition-transform duration-500"
-                                    />
+                                    <div className="relative rounded-2xl shadow-lg w-full h-64 overflow-hidden group">
+                                        <Image
+                                            fill
+                                            src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                            alt="Dental Clinic Interior"
+                                            className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                                        />
+                                    </div>
                                 </div>
                             </FadeIn>
                             <FadeIn direction="right" delay={0.3} fullWidth>
                                 <div className="space-y-4">
-                                    <img
-                                        src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                                        alt="Dr. Sarah Johnson"
-                                        className="rounded-2xl shadow-lg w-full object-cover h-80 hover:scale-[1.02] transition-transform duration-500"
-                                    />
+                                    <div className="relative rounded-2xl shadow-lg w-full h-80 overflow-hidden group">
+                                        <Image
+                                            fill
+                                            src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                            alt="Dr. Sarah Johnson"
+                                            className="object-cover group-hover:scale-[1.02] transition-transform duration-500"
+                                        />
+                                    </div>
                                 </div>
                             </FadeIn>
                         </div>
@@ -79,11 +86,14 @@ export default function AboutSection() {
 
                         <FadeIn direction="up" delay={0.6}>
                             <div className="bg-slate-50 border border-slate-100 rounded-xl p-6 flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6 hover:shadow-md transition-shadow">
-                                <img
-                                    src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
-                                    alt="Dr. Sarah Johnson"
-                                    className="w-16 h-16 rounded-full object-cover shadow-md"
-                                />
+                                <div className="relative w-16 h-16 rounded-full overflow-hidden shadow-md shrink-0">
+                                    <Image
+                                        fill
+                                        src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                                        alt="Dr. Sarah Johnson"
+                                        className="object-cover"
+                                    />
+                                </div>
                                 <div>
                                     <p className="text-lg font-bold text-slate-900">Dr. Sarah Johnson</p>
                                     <p className="text-primary font-medium text-sm">Lead Dentist, DDS</p>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Pill as Tooth, Facebook, Instagram, Twitter, MapPin, Phone, Mail } from "lucide-react";
+import Image from "next/image";
 
 export default function Footer() {
     return (

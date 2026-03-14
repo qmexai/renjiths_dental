@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 // Service Data
 const allServices = [
@@ -108,11 +109,12 @@ export default function ServicesPage() {
                                         onClick={() => toggleExpand(index)}
                                     >
                                         <div className="flex gap-4 items-start">
-                                            <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 mt-1">
-                                                <img
+                                            <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 mt-1">
+                                                <Image
+                                                    fill
                                                     src={service.image}
                                                     alt={service.title}
-                                                    className="w-full h-full object-cover"
+                                                    className="object-cover"
                                                 />
                                             </div>
                                             <div>

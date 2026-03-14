@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Pill as Tooth } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -62,34 +63,42 @@ export default function Header() {
             </div>
 
             {/* Mobile Navigation */}
-            {isMobileMenuOpen && (
-                <div className="md:hidden border-t border-border bg-white">
-                    <nav className="flex flex-col space-y-4 p-4">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className={cn(
-                                    "text-base font-medium transition-colors hover:text-primary",
-                                    pathname === link.href ? "text-primary" : "text-muted-foreground"
-                                )}
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-                        <div className="pt-2">
-                            <Link
-                                href="/contact"
-                                className="w-full inline-flex h-12 items-center justify-center rounded-md bg-primary px-6 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-                                onClick={() => setIsMobileMenuOpen(false)}
-                            >
-                                Book Appointment
-                            </Link>
-                        </div>
-                    </nav>
-                </div>
-            )}
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="md:hidden border-t border-border bg-white overflow-hidden"
+                    >
+                        <nav className="flex flex-col space-y-4 p-4">
+                            {navLinks.map((link) => (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className={cn(
+                                        "text-base font-medium transition-colors hover:text-primary",
+                                        pathname === link.href ? "text-primary" : "text-muted-foreground"
+                                    )}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {link.name}
+                                </Link>
+                            ))}
+                            <div className="pt-2">
+                                <Link
+                                    href="/contact"
+                                    className="w-full inline-flex h-12 items-center justify-center rounded-md bg-primary px-6 py-2 text-base font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Book Appointment
+                                </Link>
+                            </div>
+                        </nav>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }

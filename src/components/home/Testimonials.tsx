@@ -1,5 +1,6 @@
 import { Star, Quote } from "lucide-react";
 import FadeIn from "../shared/FadeIn";
+import Image from "next/image";
 
 const testimonials = [
     {
@@ -57,11 +58,14 @@ export default function Testimonials() {
                                 </div>
 
                                 <div className="flex items-center">
-                                    <img
-                                        src={testimonial.image}
-                                        alt={testimonial.name}
-                                        className="w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-primary/20"
-                                    />
+                                    <div className="relative w-12 h-12 rounded-full overflow-hidden mr-4 ring-2 ring-primary/20 shrink-0">
+                                        <Image
+                                            fill
+                                            src={testimonial.image}
+                                            alt={testimonial.name}
+                                            className="object-cover"
+                                        />
+                                    </div>
                                     <div>
                                         <h4 className="font-bold text-slate-900">{testimonial.name}</h4>
                                         <p className="text-sm text-slate-500">Verified Patient</p>
